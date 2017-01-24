@@ -1,5 +1,5 @@
 # neu-csye6225-4
-
+![Travis status] (https://travis-ci.com/weili6/neu-csye6225-4.svg?token=K8QfMubRUxdNYz43egWp&branch=master)
 ## Team
 - Neha Ghate ghate.n@husky.neu.edu
 - Liren Huang huang.l@husky.neu.edu
@@ -35,7 +35,3 @@ Use cases
 - Data exchange using JSON
 - Bootstrap
 - Jquery AJAX
-
- ## Travis Status
- 
- [Travis status] (https://travis-ci.com/weili6/neu-csye6225-4.svg?token=K8QfMubRUxdNYz43egWp&branch=master)
