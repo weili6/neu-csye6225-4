@@ -1,5 +1,10 @@
 # neu-csye6225-4
-![Travis status] (https://travis-ci.com/weili6/neu-csye6225-4.svg?token=K8QfMubRUxdNYz43egWp&branch=master)
+![Travis status] (https://travis-ci.com/weili6/neu-csye6225-4.svg?token=K8QfMubRUxdNYz43egWp&branch=master)  
+[deployed demo](http://ec2-52-33-87-139.us-west-2.compute.amazonaws.com:8080/demo/)  
+build  
+`$mvn package`  
+run locally  
+`java -jar target/demo-xxx.war`  
 ## Team
 - Neha Ghate ghate.n@husky.neu.edu
 - Liren Huang huang.l@husky.neu.edu
@@ -8,8 +13,8 @@
 
 
 ## Design document for web application
-_Rent a parking spot_:
-Marketplace for people to list, discover, and book unique parking spots, especially when you are new in town.
+_Rent a parking spot_:  
+Marketplace for people to list, discover, and book unique parking spots, especially when you are new in town.  
 To make it the easiest way for people to monetize their parking space and showcase it to an audience of millions.
 
 
