@@ -1,14 +1,13 @@
-package com.example;
+package team4;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.hibernate.SessionFactory;
+import org.hibernate.jpa.HibernateEntityManagerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Bean;
 
-@ComponentScan
-@EnableAutoConfiguration
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 
@@ -21,4 +20,13 @@ public class Application extends SpringBootServletInitializer {
         SpringApplication.run(Application.class, args);
     }
 
+    @Bean
+    public SessionFactory sessionFactory(HibernateEntityManagerFactory hemf){
+        return hemf.getSessionFactory();
+    }
+
 }
+
+
+
+
