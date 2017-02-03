@@ -28,7 +28,7 @@ Use cases
 1. User Registration
 2. User can rent a private parking spot
 3. User can search for nearest parking spot:
-_use Google Maps API to display nearby available parking spots based on user's current locations_
+_Use Google Maps API to display nearby available parking spots based on user's current locations_
 4. Admin authorizes the legit users publishing the parking spot.
 
 ## Technology stack
