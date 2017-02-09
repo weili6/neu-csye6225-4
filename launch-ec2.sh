@@ -1,13 +1,12 @@
 #!/bin/bash
 # Launch 1 EC2 instance and configure route53
 
-
-#        --disable-api-termination \
 INSTANCE=$(
     aws ec2 run-instances \
         --image-id ami-6edd3078 \
         --count 1 \
         --instance-type t2.micro \
+        --disable-api-termination \
         --subnet-id subnet-3969e205 \
         --security-group-ids sg-09c7a875 \
         --key-name husky \
@@ -47,3 +46,6 @@ read -rd '' ROUTE_CONFIG <<EOF
 EOF
 
 aws route53 change-resource-record-sets --cli-input-json "$ROUTE_CONFIG"
+
+# login
+# ssh -i .ssh/husky.pem ubuntu@"$IP"
