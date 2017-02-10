@@ -11,7 +11,7 @@
 # Use cases
 - User registration
 - Account management:
-_Job seeker manages his/her portfolio_
+_Job seeker manages his/her portfolio_;
 _Employer manages company profile_
 - Job post
 - Job search and apply:
