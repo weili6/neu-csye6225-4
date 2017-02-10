@@ -12,25 +12,6 @@ run locally
 - Wei Li li.wei6@husky.neu.edu
 
 
-## Design document for web application
-_Rent a parking spot_:  
-Marketplace for people to list, discover, and book unique parking spots, especially when you are new in town.  
-To make it the easiest way for people to monetize their parking space and showcase it to an audience of millions.
-
-
-Users
-- One wanting to rent a spot
-- One searching for parking spot
-- Admin
-
-Use cases
-
-1. User Registration
-2. User can rent a private parking spot
-3. User can search for nearest parking spot:
-_Use Google Maps API to display nearby available parking spots based on user's current locations_
-4. Admin authorizes the legit users publishing the parking spot.
-
 ## Technology stack
 
 - Spring Framework
