@@ -1,10 +1,7 @@
 # neu-csye6225-4
 ![Travis status] (https://travis-ci.com/weili6/neu-csye6225-4.svg?token=K8QfMubRUxdNYz43egWp&branch=master)  
-[deployed demo](http://ec2-52-33-87-139.us-west-2.compute.amazonaws.com:8080/demo/)  
-build  
-`$mvn package`  
-run locally  
-`java -jar target/demo-xxx.war`  
+team4.neu-csye6225-spring2017-team-4.me  
+ec2.neu-csye6225-spring2017-team-4.me  
 ## Team
 - Neha Ghate ghate.n@husky.neu.edu
 - Liren Huang huang.l@husky.neu.edu
