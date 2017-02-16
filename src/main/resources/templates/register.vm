@@ -114,6 +114,11 @@ $(".candidate").hide();
 						<input class="form-control" name="linkedInUrl"
 							placeholder="LinkedIn URL" size="100" >
 					</div> 
+					
+					<div class="input-group">
+						<span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+						<input type="file" accept="image/*" class="form-control" name="photo">
+					</div> 
 
 					<div class="row">
 						<input type="submit" class="btn btn-info" value="Register">
