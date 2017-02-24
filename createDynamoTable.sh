@@ -1,4 +1,4 @@
-if [ $(aws dynamodb list-tables | grep csye6225) ]
+if [ -n "$(aws dynamodb list-tables | grep csye6225)" ]
 
 then 
  echo "already exists" 
