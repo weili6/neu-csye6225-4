@@ -22,3 +22,16 @@ https://neu-csye6225-spring2017-team-4.signin.aws.amazon.com/console
 - Data exchange using JSON
 - Bootstrap
 - Jquery AJAX
+
+This is a Spring boot project built with [Spring Tool Suite](https://spring.io/tools/sts/all) (STS).
+You can download/clone the repo and import it as an existing project into workspace in STS.
+It is a Maven project so it has all required dependencies in the pom.xml.
+
+### Prerequisites
+You need the following installed and available in your $PATH:
+
+* [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Apache maven 3.0.3 or greater](http://maven.apache.org/install.html)
+
+This is a simple [tutorial](https://www.mkyong.com/maven/how-to-install-maven-in-windows/) I followed to install them.
+
