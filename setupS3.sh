@@ -2,11 +2,12 @@
 # Setup Amazon S3
 
 #ubuntu16.04
-MY_BUCKET = "s3.neu-csye6225-spring2017-team-4.me"
+MY_BUCKET="s3.neu-csye6225-spring2017-team-4.me"
 
-if[aws s3api head-bucket --bucket "$MY_BUCKET" | grep -q "Not Found"]
+if [ -n "$(aws s3api head-bucket --bucket "$MY_BUCKET" 2> >(grep Not))" ]
 	then
 	aws s3api create-bucket --bucket "$MY_BUCKET" --region us-east-1
+	echo "Bucket created"
 else
 	echo "Bucket already exists"
 	exit
