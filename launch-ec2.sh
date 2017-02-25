@@ -2,8 +2,9 @@
 # Launch 1 EC2 t2.micro instance and configure route53
 
 #ubuntu16.04
+
 IMAGE="ami-6edd3078"
-SECURITY_GROUP="sg-09c7a875"
+SECURITY_GROUP=$(aws ec2 describe-security-groups --group-names "web"| jq -r '.SecurityGroups[0].GroupId')
 RECORD_SET="ec2.neu-csye6225-spring2017-team-4.me."
 
 INSTANCE=$(
