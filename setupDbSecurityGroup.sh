@@ -6,7 +6,7 @@ echo $groupname already exists, delete and re-create it.
 aws ec2 delete-security-group --group-name "$groupname"
 fi
 
-id=$(aws ec2 create-security-group --group-name "$groupname" --description "My database security group" --vpc-id vpc-946005f2| jq -r '.SecurityGroups[0].GroupId')
+id=$(aws ec2 create-security-group --group-name "$groupname" --description "My database security group" --vpc-id vpc-946005f2| jq -r '.GroupId')
 echo Groupid = $id
 
 sourceGroupId=$(aws ec2 describe-security-groups --group-names "web"| jq -r '.SecurityGroups[0].GroupId')
