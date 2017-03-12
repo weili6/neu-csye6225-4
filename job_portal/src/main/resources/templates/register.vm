@@ -61,7 +61,7 @@ $(".candidate").hide();
 		<div class="row">
 
 			<div class="col-md-6">
-				<form action="$registration_url" modelAttribute="$registration" method="post">
+				<form action="$registration_url" modelAttribute="$registration" method="post" enctype ="multipart/form-data">
 
 				Select your Role:
 				<div class="form-group">
@@ -117,7 +117,7 @@ $(".candidate").hide();
 					
 					<div class="input-group">
 						<span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
-						<input type="file" accept="image/*" class="form-control" name="photo">
+						<input type="file" accept="image/*" class="form-control" name="image">
 					</div> 
 
 					<div class="row">

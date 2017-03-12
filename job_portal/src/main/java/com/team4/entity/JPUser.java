@@ -25,6 +25,8 @@ public class JPUser {
 
 	@NotBlank
 	private String role;
+	
+	private String path;
 
 	private boolean enabled;
 
@@ -32,10 +34,11 @@ public class JPUser {
 
 	}
 
-	public JPUser(String username, String password, String role, boolean enabled) {
+	public JPUser(String username, String password, String role, String path, boolean enabled) {
 		this.username = username;
 		this.password = password;
 		this.role = role;
+		this.path = path;
 		this.enabled = enabled;
 	}
 
@@ -78,4 +81,16 @@ public class JPUser {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	
+	
+		
 }

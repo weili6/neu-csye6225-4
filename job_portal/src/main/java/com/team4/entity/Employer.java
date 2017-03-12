@@ -20,6 +20,7 @@ public class Employer {
 	private String email;
 	private String linkedInUrl;
 	private String username;
+	private String path;
 
 	
 	@OneToMany(mappedBy = "employer")
@@ -34,12 +35,13 @@ public class Employer {
 		this.username = username;
 	}
 
-	public Employer(String name, String email, String linkedInUrl, String username) {
+	public Employer(String name, String email, String linkedInUrl, String username, String path) {
 
 		this.name = name;
 		this.email = email;
 		this.linkedInUrl = linkedInUrl;
 		this.username = username;
+		this.path = path;
 	}
 
 
@@ -90,4 +92,14 @@ public class Employer {
 	public void setPostedJobs(List<Job> postedJobs) {
 		this.postedJobs = postedJobs;
 	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+	
+	
 }
