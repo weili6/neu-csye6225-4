@@ -1,3 +1,24 @@
 language: java
 jdk:
       - oraclejdk8
+    
+deploy:
+  provider: s3
+  access_key_id: 
+      secure: "nbenVXOescs9iz4MkbKj1DKIqt82pRLMRKK/Uo+zh0LoMGAwWoezp21aIxEWyihzKuZwXzWO51k0OqSk/rMnKFIF9UwpMGMy2QSaHy5WqrvrM4LTTp8ZTXaBpzWZrrRrRaYE2koMuLpo63SSd2iONoBFaPOkGPJii4H45y182DRDn7WX+pJKEelfnuQ9sYFMKTjcG/5hk2YocS+UKJ3GG3oNGfwhIh00T0ojgG6Gb7oprlAm2mMun/OIE9xlHYkiDJtkpYcx+DQOjtSjsy4DCtej496j4xFUeTUCQqe5oUyFNNI84D5NyGF4zT0kpX0SLEMz1P++H3RejLvlCZMugiAgqRCAtORqlQ+XDYYLMSTNWh0WAiY+cOk1p9YO0bNFHEBL797KhRKKh95rGy6mTKtDeYIJqXg56GQzkDT/mq1YmB8X9TttO2NWwstyiyFOoTEfggWiU+f4OzWEJ3VHvhOfrLdh6pUnKtmYHHzu/04lgB4/qarEnNfaj/FxlkG4n0Qd01q+ivuyXfxWJNrzlhC2s6NCCyhyRv5h136nkSis0Ke6GZbSqwVZXiLw5yPddUldEqsc1pahexhJ07VQOIZuas5Ud8xV/O0kS1k9o+xJibUViSlX8GUZ1V688trLecoVxkohzcND0EPzuAtQRK/BDvfAl4T3YFylQ4ley5U="
+  secret_access_key: 
+      secure: "D8cEbP62uS6OPH0mwziOHbUbPI3Bp9Sk2mgptoBLNwCLlpQqq6pudeaBjMgaPRpv3P0YuzLIEnt8xNSdql+mnSeBeEsHneQBHh3VsX1MQU6WRacon5h/ddNTPx3dRZyMmD8IPLDLGkTEOCQhcacQwXcTPBT0QZBly9eb5uT+NbHsfrkOTc/u70Id0ZZeFF4RkIhiuKq464QiP2Z5IVTGUKplwhpty/3QRriZo7FYqn5BVFkl6Kw/ts5Ckmztx6ypdbXDgz2igLcgdZ6jyjyBd1vAZqIJd5CWGicL49QustcP0Ny11gAJqJpH05Df4L3iwpsYHgO/e/6IpxsRlWAa/IEITsvBcjeDNcUbu4VWR8TZRALGEdKSm3KYiTBwqrkbLsOy9/IiCAUQcNyrXnt4HO5vzjFI530WSK1iFSUqZOmF/923GaKpGTXznReB7KakcHt6mWJtP1uTRiIXE3OnW+o0reecFyl3TQh9zoUuqWZbW5GXZcBQelLYhd7VQIx/BbPcxlJf5pmK6+0NqAfRQBW3aHg3tJ++qNBM0tCKcABW9fpPH+VFYISetRufySmdJu3TMDxQQGvlzIKnxStQR1sP0Y0IZLUCsInfKy1rwGmAraUMKz6KzjT/tkTaO/tSkvM8CAoeszwK55mW/X2P2aVzmhfcJYPMnKUKktbXyyg="
+  bucket: "code-deploy.neu-csye6225-spring2017-team-4.me"
+  
+deploy:
+      - provider: s3
+        ⋮ # rest of S3 deployment for MyApp.zip
+      - provider: codedeploy
+        access_key_id: 
+            secure: "nbenVXOescs9iz4MkbKj1DKIqt82pRLMRKK/Uo+zh0LoMGAwWoezp21aIxEWyihzKuZwXzWO51k0OqSk/rMnKFIF9UwpMGMy2QSaHy5WqrvrM4LTTp8ZTXaBpzWZrrRrRaYE2koMuLpo63SSd2iONoBFaPOkGPJii4H45y182DRDn7WX+pJKEelfnuQ9sYFMKTjcG/5hk2YocS+UKJ3GG3oNGfwhIh00T0ojgG6Gb7oprlAm2mMun/OIE9xlHYkiDJtkpYcx+DQOjtSjsy4DCtej496j4xFUeTUCQqe5oUyFNNI84D5NyGF4zT0kpX0SLEMz1P++H3RejLvlCZMugiAgqRCAtORqlQ+XDYYLMSTNWh0WAiY+cOk1p9YO0bNFHEBL797KhRKKh95rGy6mTKtDeYIJqXg56GQzkDT/mq1YmB8X9TttO2NWwstyiyFOoTEfggWiU+f4OzWEJ3VHvhOfrLdh6pUnKtmYHHzu/04lgB4/qarEnNfaj/FxlkG4n0Qd01q+ivuyXfxWJNrzlhC2s6NCCyhyRv5h136nkSis0Ke6GZbSqwVZXiLw5yPddUldEqsc1pahexhJ07VQOIZuas5Ud8xV/O0kS1k9o+xJibUViSlX8GUZ1V688trLecoVxkohzcND0EPzuAtQRK/BDvfAl4T3YFylQ4ley5U="
+        secret_access_key: 
+            secure: "D8cEbP62uS6OPH0mwziOHbUbPI3Bp9Sk2mgptoBLNwCLlpQqq6pudeaBjMgaPRpv3P0YuzLIEnt8xNSdql+mnSeBeEsHneQBHh3VsX1MQU6WRacon5h/ddNTPx3dRZyMmD8IPLDLGkTEOCQhcacQwXcTPBT0QZBly9eb5uT+NbHsfrkOTc/u70Id0ZZeFF4RkIhiuKq464QiP2Z5IVTGUKplwhpty/3QRriZo7FYqn5BVFkl6Kw/ts5Ckmztx6ypdbXDgz2igLcgdZ6jyjyBd1vAZqIJd5CWGicL49QustcP0Ny11gAJqJpH05Df4L3iwpsYHgO/e/6IpxsRlWAa/IEITsvBcjeDNcUbu4VWR8TZRALGEdKSm3KYiTBwqrkbLsOy9/IiCAUQcNyrXnt4HO5vzjFI530WSK1iFSUqZOmF/923GaKpGTXznReB7KakcHt6mWJtP1uTRiIXE3OnW+o0reecFyl3TQh9zoUuqWZbW5GXZcBQelLYhd7VQIx/BbPcxlJf5pmK6+0NqAfRQBW3aHg3tJ++qNBM0tCKcABW9fpPH+VFYISetRufySmdJu3TMDxQQGvlzIKnxStQR1sP0Y0IZLUCsInfKy1rwGmAraUMKz6KzjT/tkTaO/tSkvM8CAoeszwK55mW/X2P2aVzmhfcJYPMnKUKktbXyyg="
+        bucket: "code-deploy.neu-csye6225-spring2017-team-4.me"
+        key: latest/jobportal.zip
+        application: jobportal
+        deployment_group: Web
