@@ -25,6 +25,39 @@ $(".candidate").hide();
     });
 });
 
+function ajaxFunction(){
+                
+                var username = document.getElementById("username").innerHTML;
+                var xmlHttp;
+   
+                try     // Firefox, Opera 8.0+, Safari
+                {
+                    xmlHttp=new XMLHttpRequest();
+                }catch (e){
+                    try  // Internet Explorer
+                    {
+                        xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+                    }catch (e){
+                        try{
+                            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                        } catch (e){
+                            alert("Your browser does not support AJAX!");
+                            return false;
+                        }
+                    }
+                }
+
+                xmlHttp.onreadystatechange = function (){
+                    if (xmlHttp.readyState == 4){
+                        document.getElementById("hint").innerHTML = xmlHttp.response;
+                        
+                    }
+                }
+
+                xmlHttp.open("GET", "/ajaxController", true);
+                xmlHttp.send();
+            }
+
 </script>
 
 </head>
@@ -99,8 +132,9 @@ $(".candidate").hide();
 					
 					<div class="input-group ">
 						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-						<input class="form-control" name="username"
-							placeholder="Username" size="100" >
+						<input class="form-control" name="username" id="username"
+							placeholder="Username" size="100" onkeyup="ajaxFunction()">
+						<span id="hint" style="color: red;"></span>
 					</div>
 					
 					<div class="input-group">
