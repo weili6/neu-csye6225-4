@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>com.team4</groupId>
+	<artifactId>team4</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>spring_data_demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>jobportal</name>
+	<description>job portal</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
