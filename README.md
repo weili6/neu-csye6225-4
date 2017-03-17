@@ -1,5 +1,7 @@
 # neu-csye6225-4
-![Travis status] (https://travis-ci.com/weili6/neu-csye6225-4.svg?token=K8QfMubRUxdNYz43egWp&branch=master)  https://travis-ci.com/weili6/neu-csye6225-4
+![Travis status] (https://travis-ci.com/weili6/neu-csye6225-4.svg?token=K8QfMubRUxdNYz43egWp&branch=master)  
+
+https://travis-ci.com/weili6/neu-csye6225-4
 
 team4.neu-csye6225-spring2017-team-4.me  
 ec2.neu-csye6225-spring2017-team-4.me  
