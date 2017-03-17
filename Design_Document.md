@@ -6,7 +6,7 @@
 # Users
 - Job seeker
 - Employer / Recruiter
-- Admin
+
 
 # Use cases
 - User registration

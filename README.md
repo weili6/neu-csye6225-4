@@ -21,7 +21,7 @@ https://neu-csye6225-spring2017-team-4.signin.aws.amazon.com/console
 - React.js
 - Data exchange using JSON
 - Bootstrap
-- Jquery AJAX
+- AJAX
 
 This is a Spring boot project built with [Spring Tool Suite](https://spring.io/tools/sts/all) (STS).
 You can download/clone the repo and import it as an existing project into workspace in STS.
