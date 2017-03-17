@@ -4,7 +4,7 @@ files:
   - source: Config/config.txt
     destination: /webapps/Config
   - source: source
-    destination: /webapps/myApp
+    destination: /webapps/jobportal
 hooks:
   BeforeInstall:
     - location: Scripts/UnzipResourceBundle.sh
