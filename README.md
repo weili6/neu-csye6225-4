@@ -1,5 +1,5 @@
 # neu-csye6225-4
-[![Travis status] (https://travis-ci.com/weili6/neu-csye6225-4.svg?token=K8QfMubRUxdNYz43egWp&branch=master)] 
+[![Build Status](https://travis-ci.com/weili6/neu-csye6225-4.svg?token=y6k4kmm4ZbfcwpY79RLX&branch=master)](https://travis-ci.com/weili6/neu-csye6225-4)
 
 https://travis-ci.com/weili6/neu-csye6225-4
 
