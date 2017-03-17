@@ -127,7 +127,7 @@ public class RegistrationController {
 
 			System.out.println(username);
 			
-			employerRepository.save(new Employer(name, email, linkedinURL,username, path));
+			employerRepository.save(new Employer(name, email, linkedinURL,username, photo));
 		}
 
 		if(Role.candidate.name().equalsIgnoreCase(userRegistrationRequest.getRole())){
@@ -145,14 +145,14 @@ public class RegistrationController {
 							univ,
 							email,
 							linkedinURL,
-							userRegistrationRequest.getGpa(), username, path));
+							userRegistrationRequest.getGpa(), username, photo));
 		}
 
 		jpUserRepository.save(
 				new JPUser(username,
 						userRegistrationRequest.getPassword(),
 						userRegistrationRequest.getRole().toLowerCase(),
-						path,
+						photo,
 						true
 						));
 
