@@ -1,5 +1,5 @@
 #!/bin/bash
 
-killall java
+killall -q java
 cd /home/ubuntu
 java -jar team4-0.0.1-SNAPSHOT.war

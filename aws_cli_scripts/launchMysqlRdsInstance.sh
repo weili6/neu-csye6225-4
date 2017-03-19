@@ -18,5 +18,4 @@ aws rds create-db-instance \
     --no-multi-az \
     --no-publicly-accessible \
     --vpc-security-group-ids $dbgroupid \
-    --publicly-accessible
 
