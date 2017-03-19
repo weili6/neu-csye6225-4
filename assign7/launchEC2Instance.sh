@@ -3,8 +3,6 @@
 
 #ubuntu16.04
 
-# tagging http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#instance-details-tags
-
 IMAGE="ami-f4cc1de2"
 SECURITY_GROUP=$(aws ec2 describe-security-groups --group-names "web"| jq -r '.SecurityGroups[0].GroupId')
 RECORD_SET="ec2.neu-csye6225-spring2017-team-4.me."

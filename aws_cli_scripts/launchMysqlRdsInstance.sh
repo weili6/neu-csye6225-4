@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euf -o pipefail
-sgid=sg-09c7a875
+dbgroupid=$(aws ec2 describe-security-groups --group-names "db"| jq -r '.SecurityGroups[0].GroupId')
 
 if [ -n "$(aws rds describe-db-instances --db-instance-identifier csye6225)" ]; then
     echo 'csye6225 mysql db already exists'
@@ -17,5 +17,6 @@ aws rds create-db-instance \
     --master-user-password csye6225 \
     --no-multi-az \
     --no-publicly-accessible \
-    --vpc-security-group-ids $sgid
+    --vpc-security-group-ids $dbgroupid \
+    --publicly-accessible
 

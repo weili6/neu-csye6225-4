@@ -1,21 +1,31 @@
 version: 0.0
 os: linux
+
 files:
-  - source: Config/config.txt
-    destination: /webapps/Config
-  - source: source
-    destination: /webapps/jobportal
+  - source: ./appspec.yml
+    destination: /home/ubuntu
+  - source: ./restartapp.sh
+    destination: /home/ubuntu
+  - source: ./target/team4-0.0.1-SNAPSHOT.war
+    destination: /home/ubuntu
+
+#permissions:
+#  - object: /var/lib/tomcat7/webapps
+#      pattern: "**"
+#      owner: tomcat7
+#      group: tomcat7
+#      mode: 755
+#      type:
+#        - directory
+#  - object: /home/ubuntu
+#      pattern: "*.sh"
+#      owner: ubuntu
+#      mode: 755
+#      type:
+#        - file
+
 hooks:
-  BeforeInstall:
-    - location: Scripts/UnzipResourceBundle.sh
-    - location: Scripts/UnzipDataBundle.sh
   AfterInstall:
-    - location: Scripts/RunResourceTests.sh
-      timeout: 180
-  ApplicationStart:
-    - location: Scripts/RunFunctionalTests.sh
-      timeout: 3600
-  ValidateService:
-    - location: Scripts/MonitorService.sh
-      timeout: 3600
-      runas: codedeployuser
+   - location: ./restartapp.sh
+     timeout: 180
+     runas: ubuntu
