@@ -2,6 +2,7 @@ package com.team4.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -37,52 +38,13 @@ public class AjaxController extends HttpServlet{
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            System.out.println("in ajax controller******************************");
+            
             response.setHeader("Pragma", "No-cache");
             response.setDateHeader("Expires", 0);
             response.setHeader("Cache-Control", "no-cache");
-//            String role = request.getParameter("role");
-//            String username = request.getParameter("username");
-//            String result = "";
-//            if(role.equals("employer")){
-//				if(employerRepository.findByUsername(username) == null){
-//					result = "Valid Username";
-//				}else{
-//					result = "Invalid Username";
-//				}
-//			}
-//			
-//			if(role.equals("candidate")){
-//				if(candidateRepository.findByUsername(username) == null){
-//					result = "Valid Username";
-//				}else{
-//					result = "Invalid Username";
-//				}
-//			}
-            out.println("ajax");
+
+            out.println(new Date());
         }
     }
-//	public @ResponseBody void processAJAXRequest(
-//				@RequestParam("role") String role,
-//				@RequestParam("username") String username	) {
-//			String response = "";
-//			
-//			if(role.equals("employer")){
-//				if(employerRepository.findByUsername(username) == null){
-//					response = "Valid Username";
-//				}else{
-//					response = "Invalid Username";
-//				}
-//			}
-//			
-//			if(role.equals("candidate")){
-//				if(candidateRepository.findByUsername(username) == null){
-//					response = "Valid Username";
-//				}else{
-//					response = "Invalid Username";
-//				}
-//			}
-//			
-//			
-//		}
+
 }
