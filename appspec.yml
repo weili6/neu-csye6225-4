@@ -26,6 +26,6 @@ files:
 
 hooks:
   AfterInstall:
-   - location: ls
+   - location: /bin/ls
      timeout: 180
      runas: ubuntu
