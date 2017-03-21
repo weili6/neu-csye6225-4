@@ -26,6 +26,6 @@ files:
 
 hooks:
   AfterInstall:
-   - location: ./restartapp.sh
+   - location: /home/ubuntu/restartapp.sh
      timeout: 180
      runas: ubuntu
