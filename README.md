@@ -17,11 +17,10 @@ https://neu-csye6225-spring2017-team-4.signin.aws.amazon.com/console
 
 - Spring Framework
 - Java
-- Python
+- JavaScript
 - MySQL
 - Dynamo DB
-- React.js
-- Data exchange using JSON
+- Image upload
 - Bootstrap
 - AJAX
 
