@@ -26,6 +26,6 @@ files:
 
 hooks:
   AfterInstall:
-   - location: /bin/ls
+   - location: ./restartapp.sh
      timeout: 180
      runas: ubuntu
