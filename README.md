@@ -36,3 +36,8 @@ You need the following installed and available in your $PATH:
 
 This is a simple [tutorial](https://www.mkyong.com/maven/how-to-install-maven-in-windows/) I followed to install them.
 
+Scripts for setup:
+In aws_cli_scripts folder we have scripts for the following:
+1.Create Script to Create DynamoDB Table
+createDynamoTable.sh creates a dynamodb table and if table exists it gives a message "already exists" .
+We have table name as csye6225 with attributes personId in Number and username as String.
