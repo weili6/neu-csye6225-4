@@ -9,8 +9,12 @@ public class ViewMapper {
 	
 	public static final String REGISTRATION = "register";
 	public static final String LOGIN = "login";
+	public static final String FORGOT_PASSWORD = "forgot_password";
+	
 	
 	public static final String CANDIDATE_JOBS = "candidate_view_jobs";
 	public static final String CANDIDATE_PROFILE = "candidate_profile";
+	public static final String SUCCESS_RESET = "success_reset";
+	
 
 }

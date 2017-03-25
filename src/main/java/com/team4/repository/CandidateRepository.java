@@ -4,10 +4,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 
 import com.team4.entity.Candidate;
+import com.team4.entity.Employer;
 
 
 public interface CandidateRepository extends JpaRepository<Candidate, Long> {
 
 	Candidate findByUsername(@Param("username") String username);
 
+	Candidate findByEmail(@Param("email") String email);
 }

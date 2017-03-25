@@ -16,4 +16,7 @@ public class URLMapper {
 	public static final String EMPLOYER_VIEW_JOB_RESPONSES = "/employer_view_responses.htm";
 	public static final String EMPLOYER_UPDATE_APPLICATION_STATUS = "employer_update_application_status.htm";
 	public static final String CANDIDATE_PROFILE = "edit_profile.htm";
+	
+	public static final String FORGOT_PASSWORD = "/forgot_password.htm";
+	
 }

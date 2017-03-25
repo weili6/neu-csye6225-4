@@ -8,4 +8,6 @@ import com.team4.entity.Employer;
 
 public interface EmployerRepository extends JpaRepository<Employer, Long> {
 	Employer findByUsername(@Param("username") String username);
+	
+	Employer findByEmail(@Param("email") String email);
 }
