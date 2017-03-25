@@ -85,6 +85,9 @@
 		<div class = "col-md-12">
 		<h3> Name : $candidate.Name </h3>
 		</div>
+		<div class = "col-md-3">
+		<img src="https://s3.amazonaws.com/s3.neu-csye6225-spring2017-team-4.me/images/$candidate.username" width="150" height="150" />
+		</div>
 		<div class ="col-md-3">
 		<h4>Linkedin URL : $candidate.linkedInUrl </h4>
 		</div>

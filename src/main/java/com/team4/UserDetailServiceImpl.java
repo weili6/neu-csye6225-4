@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.core.authority.GrantedAuthorityImpl;
+//import org.springframework.security.core.authority.GrantedAuthorityImpl;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -46,8 +47,10 @@ public class UserDetailServiceImpl implements UserDetailsService {
 		boolean accountNonExpired = true;
 		boolean credentialsNonExpired = true;
 		boolean accountNonLocked = true;
-		GrantedAuthorityImpl[] authorities = new GrantedAuthorityImpl[1];
-		authorities[0] = new GrantedAuthorityImpl(userEntity.getRole());
+//		GrantedAuthorityImpl[] authorities = new GrantedAuthorityImpl[1];
+//		authorities[0] = new GrantedAuthorityImpl(userEntity.getRole());
+		SimpleGrantedAuthority[] authorities = new SimpleGrantedAuthority[1];
+		authorities[0] = new SimpleGrantedAuthority(userEntity.getRole());
 
 		User springUser = new User(username, password, enabled, accountNonExpired, credentialsNonExpired,
 				accountNonLocked, Arrays.asList(authorities));

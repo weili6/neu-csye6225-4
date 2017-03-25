@@ -5,13 +5,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 
 import com.team4.util.Role;
 
 @Configuration
-@EnableWebMvcSecurity
+//@EnableWebMvcSecurity
+@EnableWebSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
@@ -36,8 +38,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.httpBasic().disable();
 
 		http.authorizeRequests().antMatchers("/", "/login", "/registration.htm","/forgot_password.htm").permitAll() 
-		.antMatchers("/employer*.htm").access("hasRole('"+Role.employer.name()+"')")
-		.antMatchers("/candidate*.htm").access("hasRole('"+Role.candidate.name()+"')")
+//		.antMatchers("/employer*.htm").access("hasRole('"+Role.employer.name()+"')")
+//		.antMatchers("/candidate*.htm").access("hasRole('"+Role.candidate.name()+"')")
+		.antMatchers("/employer*.htm").hasAuthority(Role.employer.name())
+		.antMatchers("/candidate*.htm").hasAuthority(Role.candidate.name())
 		.anyRequest().authenticated().and().formLogin().loginPage("/login").
 		failureUrl("/login?error=true").
 		successHandler(loginSuccessHandler)

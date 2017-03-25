@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.team4.UploadImageToS3;
 import com.team4.entity.Candidate;
 import com.team4.entity.Employer;
 import com.team4.entity.JPUser;
@@ -55,6 +56,7 @@ public class RegistrationController {
 	@Autowired
 	CandidateRepository candidateRepository;
 
+	UploadImageToS3 uploadImagesToS3 = new UploadImageToS3();
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String loadRegistrationPage(Model model) {
@@ -98,8 +100,9 @@ public class RegistrationController {
         InputStream filecontent = null;
 
         PrintWriter writer = response.getWriter();
+        File imageFile = new File(path + File.separator + fileName);
         try {
-        out = new FileOutputStream(new File(path + File.separator + fileName));
+        out = new FileOutputStream(imageFile);
         filecontent = image.getInputStream();
         int read = 0;
         final byte[] bytes = new byte[1024];
@@ -118,6 +121,8 @@ public class RegistrationController {
 		email = ValidateScripting.validate(email);
 		linkedinURL = ValidateScripting.validate(linkedinURL);
 		username = ValidateScripting.validate(username);
+		
+		uploadImagesToS3.uploadImages(imageFile, username);
 
 		if (result.hasErrors()) {
 			return ViewMapper.REGISTRATION;
@@ -127,7 +132,7 @@ public class RegistrationController {
 
 			System.out.println(username);
 			
-			employerRepository.save(new Employer(name, email, linkedinURL,username, photo));
+			employerRepository.save(new Employer(name, email, linkedinURL,username));
 		}
 
 		if(Role.candidate.name().equalsIgnoreCase(userRegistrationRequest.getRole())){
@@ -145,14 +150,13 @@ public class RegistrationController {
 							univ,
 							email,
 							linkedinURL,
-							userRegistrationRequest.getGpa(), username, photo));
+							userRegistrationRequest.getGpa(), username));
 		}
 
 		jpUserRepository.save(
 				new JPUser(username,
 						userRegistrationRequest.getPassword(),
 						userRegistrationRequest.getRole().toLowerCase(),
-						photo,
 						true
 						));
 

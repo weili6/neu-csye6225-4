@@ -28,7 +28,6 @@ public class Candidate {
 
 	private String username;
 	
-	private String path;
 
 	@OneToMany
 	@Transient
@@ -44,7 +43,7 @@ public class Candidate {
 	}
 	
 	public Candidate(String name, String univName, String email, String linkedInUrl, Float gpa,
-			String username, String path) {
+			String username) {
 
 		this.name = name;
 		this.univName = univName;
@@ -52,7 +51,6 @@ public class Candidate {
 		this.linkedInUrl = linkedInUrl;
 		this.gpa = gpa;
 		this.username = username;
-		this.path = path;
 	}
 
 
@@ -129,13 +127,6 @@ public class Candidate {
 		this.name = name;
 	}
 
-	public String getPath() {
-		return path;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
-	}
 	
 	
 }
