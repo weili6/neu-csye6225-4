@@ -159,6 +159,8 @@ public class RegistrationController {
 						userRegistrationRequest.getRole().toLowerCase(),
 						true
 						));
+		
+		imageFile.delete();
 
 
 		return ViewMapper.LOGIN;
