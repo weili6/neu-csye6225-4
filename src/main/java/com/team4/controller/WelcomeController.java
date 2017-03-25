@@ -18,13 +18,17 @@ public class WelcomeController {
 	 * model.put("time", new Date()); model.put("message", this.message); return
 	 * "welcome"; }
 	 */
-
+	@RequestMapping("/")
+	public String rootLogin(Map<String, Object> model) {
+		model.put("time", new Date());
+		model.put("message", this.message);
+		return "login";
+	}
+	
 	@RequestMapping("/login")
 	public String login(Map<String, Object> model) {
 		model.put("time", new Date());
 		model.put("message", this.message);
 		return "login";
 	}
-	
-
 }
