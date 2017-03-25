@@ -18,6 +18,7 @@ https://neu-csye6225-spring2017-team-4.signin.aws.amazon.com/console
 - Spring Framework
 - Java
 - JavaScript
+- Hibernate
 - MySQL
 - Dynamo DB
 - Image upload
@@ -36,3 +37,51 @@ You need the following installed and available in your $PATH:
 
 This is a simple [tutorial](https://www.mkyong.com/maven/how-to-install-maven-in-windows/) I followed to install them.
 
+## Scripts for setup:
+Notice: Because there are a lot of configuration dependencies among AWS services, rerun any of the scripts may cause currently working AWS services to fail.
+
+### 1. launch ec2 instance
+launchEC2Instance.sh launches a Ubuntu 16.04 server and configures it with userdata.sh, then points neu-csye6225-spring2017-team-4.me to its ip.
+
+### 2. Set up S3
+setupS3.sh creates a bucket "s3.neu-csye6225-spring2017-team-4.me" on AWS S3 and if the bucket exists it gives a message "Bucket already exists". We enable versioning to the bucket and grant read permission for all users
+
+### 3. set up web security group
+setupWebSecurityGroup.sh creates a "web" security group and opens port 80 and 443 for incoming traffic from anywhere.
+
+### 4. set up database security group
+setupWebSecurityGroup.sh creates a "db" security group and opens port 3306 for incoming traffic from 'web' security group.
+
+### 5. launch MyQql RDS instance
+launchMysqlRdsInstance.sh launches a mysql instance with no public accessability.
+
+### 6. Create Script to Create DynamoDB Table
+createDynamoTable.sh creates a dynamodb table and if table exists it gives a message "already exists" .
+We have table name as csye6225 with attributes personId in Number and username as String.
+
+### 7. create IAM policies
+createContinuousDeliveryIAMPolicies.sh creates three policies 'CodeDeploy-EC2-S3', 'Travis-Upload-To-S3' and 'Travis-Code-Deploy'
+
+### 8. create travis user
+createContinuousDeliveryTravisUser.sh creates a 'travis' user with 'Travis-Upload-To-S3' and 'Travis-Code-Deploy' policies attached.
+
+### 9. create IAM roles
+createContinuousDeliveryIAMRoles.sh creates a 'CodeDeployEC2ServiceRole' with 'CodeDeploy-EC2-S3' policy attached, and a 'CodeDeployServiceRole' with 'AWSCodeDeployRole' policy attched.
+
+### 10. set up a S3 bucket for Code Deploy
+setup_codedeploy_s3.sh creates a S3 bucket to deploy the application archive.
+
+### 11. create CodeDeploy application
+createContinuousDeliveryCodeDeployApp.sh creates a CodeDeploy application 'jobportal' and add the ec2 instance to it.
+
+### 12. appspec.yml & .travis.yml
+Configuration files for continuous deployment.
+
+### 13. restartapp.sh
+It's used by CodeDeploy to restart the application on the EC2 instance. It's not meant to be used by users.
+
+
+
+## Updates
+
+* Fix AJAX related errors, add AJAX in login.vm and register.vm;
