@@ -85,3 +85,5 @@ It's used by CodeDeploy to restart the application on the EC2 instance. It's not
 ## Updates
 
 * Fix AJAX related errors, add AJAX in login.vm and register.vm;
+
+* Upload user image to S3 and display the image on candidate profile page
