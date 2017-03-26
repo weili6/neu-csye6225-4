@@ -3,6 +3,8 @@
 
 https://travis-ci.com/weili6/neu-csye6225-4
 
+https://neu-csye6225-spring2017-team-4.me
+
 team4.neu-csye6225-spring2017-team-4.me  
 ec2.neu-csye6225-spring2017-team-4.me  
 https://neu-csye6225-spring2017-team-4.signin.aws.amazon.com/console  
