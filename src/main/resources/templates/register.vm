@@ -25,6 +25,52 @@ $(".candidate").hide();
     });
 });
 
+function ajaxFunction(){
+                
+                var username = document.getElementById("username").value;
+                
+                var index = document.getElementById("role").selectedIndex;
+                var option = document.getElementById("role").options;
+                var role = option[index].text;
+                
+                var xmlHttp;
+   
+                try     // Firefox, Opera 8.0+, Safari
+                {
+                    xmlHttp=new XMLHttpRequest();
+                }catch (e){
+                    try  // Internet Explorer
+                    {
+                        xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+                    }catch (e){
+                        try{
+                            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                        } catch (e){
+                            alert("Your browser does not support AJAX!");
+                            return false;
+                        }
+                    }
+                }
+
+                xmlHttp.onreadystatechange = function (){
+                    if (xmlHttp.readyState == 4){
+                    	var response = xmlHttp.responseText;
+                        document.getElementById("hint").innerHTML = response;
+                        if(response === "Invalid Username"){
+                        	document.getElementById("hint").style.color = "red";
+                        }else{
+                        	document.getElementById("hint").style.color = "green";
+                        }
+                        
+                    }
+                }
+
+                xmlHttp.open("GET", "/ajaxCheck?username="+username+"&role="+role, true);
+                xmlHttp.send();
+            }
+ 
+</script>
+ 
 
 </script>
 
@@ -99,11 +145,11 @@ $(".candidate").hide();
 					</div>
 					
 					<div class="input-group ">
-						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-						<input class="form-control" name="username" 
-							placeholder="Username" size="100" >
-						
-					</div>
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span><br>
+                        <input class="form-control" name="username" id="username" 
+                        placeholder="Username" size="100" onkeyup="ajaxFunction()">
+                        <span id="hint" />
+                    </div>
 					
 					<div class="input-group">
 						<span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>

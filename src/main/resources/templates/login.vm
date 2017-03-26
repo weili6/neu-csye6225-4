@@ -8,10 +8,8 @@
 <link rel="stylesheet" type="text/javascript"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 
-#*<script type="text/javascript">
-  function ajaxFunction(){
-                
-                
+<script type="text/javascript">
+    function ajaxFunction(){               
                 var xmlHttp;
    
                 try     // Firefox, Opera 8.0+, Safari
@@ -33,7 +31,7 @@
 
                 xmlHttp.onreadystatechange = function (){
                     if (xmlHttp.readyState == 4){
-                        document.getElementById("result").innerHTML = new Date();
+                        document.getElementById("result").innerHTML = xmlHttp.response;
                         console.log(xmlHttp.response);
                         
                     }
@@ -43,15 +41,15 @@
                 xmlHttp.send();
             }
 </script>
+ 
 <script type="text/javascript">
     var intervalId = 0;
     intervalId = setInterval(ajaxFunction, 1000);
 </script>
-*#
 </head>
 <body>
 	<div class="container">
-	        <div class="row"><div id="result"></div></div>
+	    <div class="row"><div id="result"></div></div>
 		<div class="row">
 			<form action="/login"  method="post"
 				class="form-signin">
