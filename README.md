@@ -25,7 +25,7 @@ https://neu-csye6225-spring2017-team-4.signin.aws.amazon.com/console
 - Dynamo DB
 - Image upload
 - Bootstrap
-- AJAX
+- jQuery AJAX
 
 This is a Spring boot project built with [Spring Tool Suite](https://spring.io/tools/sts/all) (STS).
 You can download/clone the repo and import it as an existing project into workspace in STS.
@@ -86,6 +86,6 @@ It's used by CodeDeploy to restart the application on the EC2 instance. It's not
 
 ## Updates
 
-* Fix AJAX related errors, add AJAX in login.vm and register.vm;
-
+* Add anti XSS filter;
+* Update AJAX to jQuery AJAX;
 * Upload user image to S3 and display the image on candidate profile page
