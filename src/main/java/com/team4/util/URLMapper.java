@@ -8,7 +8,7 @@ public class URLMapper {
 
 	public static final String REGISTRATION = "registration.htm";
 	
-	public static final String AJAX = "/ajaxController";
+	public static final String AJAXEMAILPATTERN = "/ajaxCheckEmailPattern";
 	public static final String AJAXCHECK = "/ajaxCheck";
 
 	public static final String EMPLOYER_DELETE_JOB_URL = "employer_delete_job.htm";
