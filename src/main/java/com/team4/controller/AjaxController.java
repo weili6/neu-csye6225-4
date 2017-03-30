@@ -32,12 +32,7 @@ public class AjaxController {
 	CandidateRepository candidateRepository;
 
 	
-	@RequestMapping(value=URLMapper.AJAX, method = RequestMethod.GET)
-    public @ResponseBody String getTime() {
-		String pattern = "EEEEE MMMMM yyyy HH:mm:ss";
-	    SimpleDateFormat format = new SimpleDateFormat(pattern);
-        return  format.format(new Date());
-    }
+	
 	
 	@RequestMapping(value = URLMapper.AJAXCHECK, method = RequestMethod.GET)
 	public @ResponseBody String processRequest(HttpServletRequest request){
