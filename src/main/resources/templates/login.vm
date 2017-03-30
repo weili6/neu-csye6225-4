@@ -13,6 +13,18 @@
     	document.getElementById("result").innerHTML = new Date();             
                 
     }
+    
+    function validate(){
+    	var username = document.getElementById("name").value;
+    	var password = document.getElementById("password").value;
+    	
+    	if(username=='' || password==''){
+    		alert("No empty!");
+    		return false;
+    	}
+    	
+    	return true;
+    }
 </script>
  
 <script type="text/javascript">
@@ -44,7 +56,7 @@
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail2">Password</label> 
-						<input type="password" class="form-control"  name="password"
+						<input type="password" class="form-control"  name="password" id="password"
 							placeholder="jane.doe@example.com" style="width: 300px">
 					</div>
 					
