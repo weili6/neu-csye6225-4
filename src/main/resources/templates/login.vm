@@ -60,7 +60,7 @@
 							placeholder="jane.doe@example.com" style="width: 300px">
 					</div>
 					
-					<button class="btn btn-md btn-success" type="submit">Sign
+					<button class="btn btn-md btn-success" type="submit" onclick="validate()">Sign
 					in</button>
 					<a href="forgot_password.htm">Forgot Password</a>
 				</div>
