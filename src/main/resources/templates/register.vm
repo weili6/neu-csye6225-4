@@ -37,14 +37,58 @@ function ajaxFunction(){
     $.ajax({url: "/ajaxCheck?username="+username+"&role="+role, success: function(result){
         $("#hint").html(result);
         if(result == "Invalid Username"){
-        	$("#hint").css("color", "red");
+            $("#hint").css("color", "red");
+	    $("#submit").prop('disabled', true);
         }else{
             $("#hint").css("color", "green");
+	    $("#submit").prop('disabled', false);
         }
     }});
 }
  
-</script>
+function validate(){
+
+	var index = document.getElementById("role").selectedIndex;
+    var option = document.getElementById("role").options;
+    var role = option[index].text;
+    
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var gpa = document.getElementById("gpa").value;
+    var univname = document.getElementById("univname").value;
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var linkedin = document.getElementById("linkedin").value;
+    var image = document.getElementById("image").value;
+    
+    if(role=="Employer"){
+    	if(name=='' || email=='' || username=='' || password=='' || linkedin=='' || image==''){
+    		alert("No empty!");
+    		return false;
+    	}
+    }else if(role=="Candidate"){
+    	if(name=='' || email=='' || username=='' || password=='' || linkedin=='' || gpa=='' || univname=='' || image==''){
+    		alert("No empty!");
+    		return false;
+    	}
+    }
+    
+    return true;
+}
+
+function checkPattern(){
+	var email = document.getElementById("email").value;
+	$.ajax({url: "/ajaxCheckEmailPattern?email="+email, success: function(result){
+        $("#result").html(result);
+        if(result == "Invalid Email Address"){
+        	$("#result").css("color", "red");
+        	$("#submit").prop('disabled', true);
+        }else{
+            $("#result").css("color", "green");
+            $("#submit").prop('disabled', false);
+        }
+    }});
+}
  
 
 </script>
@@ -83,7 +127,7 @@ function ajaxFunction(){
 		<div class="row">
 
 			<div class="col-md-6">
-				<form action="$registration_url" modelAttribute="$registration" method="post" enctype ="multipart/form-data">
+				<form action="$registration_url" modelAttribute="$registration" method="post" enctype ="multipart/form-data" onsubmit="validate()">
 
 				Select your Role:
 				<div class="form-group">
@@ -96,51 +140,52 @@ function ajaxFunction(){
 				
 					<div class="input-group">
 						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-						<input  class="form-control" name="name"
+						<input  class="form-control" name="name" id="name"
 							placeholder="Your Name" size="100" >
 						
 					</div>
 
 					<div class="input-group">
-						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-						<input class="form-control" name="email"
-							placeholder="Email Address" size="100" >
+						<span class="glyphicon glyphicon-user" aria-hidden="true"></span><br>
+						<input class="form-control" name="email" id="email"
+							placeholder="Email Address" size="100" onkeyup="checkPattern()">
+						<span id="result" />
 					</div>
 
 					<div class="input-group candidate">
 						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-						<input class="form-control" name="gpa"
+						<input class="form-control" name="gpa" id="gpa"
 							placeholder="GPA" size="50">
 					</div>
 
 					<div class="input-group candidate">
 						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-						<input class="form-control" name="univName"
+						<input class="form-control" name="univName" id="univname"
 							placeholder="University name" size="100" >
 					</div>
 					
 					<div class="input-group ">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span><br>
-                        <input class="form-control" name="username" id="username" 
-                        placeholder="Username" size="100" onkeyup="ajaxFunction()">
-                        <span id="hint" />
-                    </div>
+                        			<span class="glyphicon glyphicon-user" aria-hidden="true"></span><br>
+                        			<input class="form-control" name="username" id="username" 
+                        				placeholder="Username" size="100" onkeyup="ajaxFunction()">
+                        			<span id="hint" />
+                    			</div>
 					
 					<div class="input-group">
 						<span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>
-						<input type="password" name="password" class="form-control"
+						<input type="password" name="password" class="form-control" id="password"
 							placeholder="Password" size="100" />
 					</div>
 
 					 <div class="input-group">
 						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-						<input class="form-control" name="linkedInUrl"
+						<input class="form-control" name="linkedInUrl" id="linkedin"
 							placeholder="LinkedIn URL" size="100" >
 					</div> 
 					
 					<div class="input-group">
 						<span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
-						<input type="file" accept="image/*" class="form-control" name="image">
+						<input type="file" accept="image/*" class="form-control" name="image" id="image">
 					</div> 
 
 					<div class="row">
