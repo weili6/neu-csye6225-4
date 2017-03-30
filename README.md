@@ -89,3 +89,5 @@ It's used by CodeDeploy to restart the application on the EC2 instance. It's not
 * Add anti XSS filter;
 * Update AJAX to jQuery AJAX;
 * Upload user image to S3 and display the image on candidate profile page
+* Add email pattern control
+* Add empty entry alert
