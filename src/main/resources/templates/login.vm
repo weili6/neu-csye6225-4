@@ -9,47 +9,22 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 
 <script type="text/javascript">
-    function ajaxFunction(){               
-                var xmlHttp;
-   
-                try     // Firefox, Opera 8.0+, Safari
-                {
-                    xmlHttp=new XMLHttpRequest();
-                }catch (e){
-                    try  // Internet Explorer
-                    {
-                        xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
-                    }catch (e){
-                        try{
-                            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-                        } catch (e){
-                            alert("Your browser does not support AJAX!");
-                            return false;
-                        }
-                    }
-                }
-
-                xmlHttp.onreadystatechange = function (){
-                    if (xmlHttp.readyState == 4){
-                        document.getElementById("result").innerHTML = xmlHttp.response;
-                        console.log(xmlHttp.response);
-                        
-                    }
-                }
-
-                xmlHttp.open("GET", "/ajaxController", true);
-                xmlHttp.send();
-            }
+    function freshDate(){  
+    	document.getElementById("result").innerHTML = new Date();             
+                
+    }
 </script>
  
 <script type="text/javascript">
     var intervalId = 0;
-    intervalId = setInterval(ajaxFunction, 1000);
+    intervalId = setInterval(freshDate, 1000);
 </script>
 </head>
 <body>
 	<div class="container">
-	    <div class="row"><div id="result"></div></div>
+	    <nav class="navbar navbar-default">
+	    <div class="container-fluid"><br><div id="result"></div></div>
+	    </nav>
 		<div class="row">
 			<form action="/login"  method="post"
 				class="form-signin">
