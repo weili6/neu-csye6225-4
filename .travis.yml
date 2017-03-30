@@ -22,14 +22,16 @@ before_deploy:
 deploy:
   - provider: s3
     access_key_id: AKIAIGPX5V5DUO2RVB6A
-    secret_access_key: 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
+    secret_access_key:
+        secure: klvNh76DrgJDsOuqRQ51wPNHiDvS/kcIFiIAj22pj3TtK8hIGoEatpuRvuiBwyuilg5kK/NTA6slBxIDjPTrbGbgT2qV4yPWpEidUczzdfpM9KC2qzezy3HAlaCG58ZS9q5bqSky2kbBsQUqb7t9lNBGI01B6v9p/VJCmYuUVgnCj5e2M9m096tYpFelCw+8hA0bDgbtH+yigekYyNQSshDopQb/v4uGnp5SVg0BT6NSxOrNQjcBQEWCHEWcrRTvlWhyJlD2Stxxpp8/4cu9rkmz9b7ik2zxTDIi+B1/Kps8z9ljBIawQfHD4vfbRZOdVucQHezk31GwTRnbk20ot/aoe8RJ4S4U2ukLOSNDAk6l7Hd58DmEpDA42yBDnGMitSIYT61KDbR8HRK3uwUWMZuPcOZdElJsCj7sHSv9Olch5chQLxcl8tQtWEFZbqOXMk4YAAAGbetxac0HKd2wex+IrzOD8hmrkmcsEJr9v1TtY2QRpNfdoDD3nBFabBgFSKMtb32fgMpeKTdXuB6Q+tJG0AW6NzTg9pWp1un+/6jiy7CKm7w2/wiWDPmk8R9nlmLQVGzhC8DOtGmzxqVPHUnT7c8jMEUBF0GszJsw86qsoOeG5TKPw2sng9n3Min3cG/QUPt5FG5tim+TcEiwZlMqL0vEdhhAU4TsJ0JfQro=
     local_dir: codedeploy
     bucket: code-deploy.neu-csye6225-spring2017-team-4.me
     region: us-east-1
     skip_cleanup: true
   - provider: codedeploy
     access_key_id: AKIAIGPX5V5DUO2RVB6A
-    secret_access_key: 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
+    secret_access_key: 
+        secure: klvNh76DrgJDsOuqRQ51wPNHiDvS/kcIFiIAj22pj3TtK8hIGoEatpuRvuiBwyuilg5kK/NTA6slBxIDjPTrbGbgT2qV4yPWpEidUczzdfpM9KC2qzezy3HAlaCG58ZS9q5bqSky2kbBsQUqb7t9lNBGI01B6v9p/VJCmYuUVgnCj5e2M9m096tYpFelCw+8hA0bDgbtH+yigekYyNQSshDopQb/v4uGnp5SVg0BT6NSxOrNQjcBQEWCHEWcrRTvlWhyJlD2Stxxpp8/4cu9rkmz9b7ik2zxTDIi+B1/Kps8z9ljBIawQfHD4vfbRZOdVucQHezk31GwTRnbk20ot/aoe8RJ4S4U2ukLOSNDAk6l7Hd58DmEpDA42yBDnGMitSIYT61KDbR8HRK3uwUWMZuPcOZdElJsCj7sHSv9Olch5chQLxcl8tQtWEFZbqOXMk4YAAAGbetxac0HKd2wex+IrzOD8hmrkmcsEJr9v1TtY2QRpNfdoDD3nBFabBgFSKMtb32fgMpeKTdXuB6Q+tJG0AW6NzTg9pWp1un+/6jiy7CKm7w2/wiWDPmk8R9nlmLQVGzhC8DOtGmzxqVPHUnT7c8jMEUBF0GszJsw86qsoOeG5TKPw2sng9n3Min3cG/QUPt5FG5tim+TcEiwZlMqL0vEdhhAU4TsJ0JfQro=
     bucket: code-deploy.neu-csye6225-spring2017-team-4.me
     key: jobportal.zip
     bundle_type: zip
