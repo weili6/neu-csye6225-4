@@ -32,7 +32,18 @@ public class AjaxController {
 	CandidateRepository candidateRepository;
 
 	
-	
+	@RequestMapping(value=URLMapper.AJAXEMAILPATTERN, method = RequestMethod.GET)
+    	public @ResponseBody String checkEmailPattern(HttpServletRequest request) {
+		String email = request.getParameter("email");
+		Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
+            Matcher m = p.matcher(email);
+            boolean matchFound = m.matches();
+            if (!matchFound) {
+        	return "Invalid Email Address";
+            }else{
+        	return "Valid Email Address";
+            }
+   	}
 	
 	@RequestMapping(value = URLMapper.AJAXCHECK, method = RequestMethod.GET)
 	public @ResponseBody String processRequest(HttpServletRequest request){
