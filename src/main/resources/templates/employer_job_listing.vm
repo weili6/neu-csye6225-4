@@ -83,6 +83,7 @@
 							##	class="badge">${jobs.size()}</span></a></li>
 							<li class="active"><a href="employer_jobs.htm">List Jobs &nbsp;<span
 								class="badge">${jobs.size()}</span></a></li>
+							<li ><a href="employer_view_profile.htm">My Profile</a></li>
 
 					</ul>
 					<ul class="nav navbar-nav navbar-right">

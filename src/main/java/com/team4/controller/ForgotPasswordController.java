@@ -3,6 +3,7 @@ package com.team4.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,10 +43,11 @@ public class ForgotPasswordController {
 		JPUser user = null;
 		String email = request.getParameter("emailaddress");
 		Employer employer = employerRepository.findByEmail(email);
+		String newPwd = generateRandomPassword();
 		if (employer != null) {
 			if (email.equals(employer.getEmail())) {
 				try {
-					AmazonSESSample.sendEmail(email);
+					AmazonSESSample.sendEmail(email, newPwd);
 					user = jpUserRepository.findByUsernameIgnoreCase(employer.getUsername());
 					
 				} catch (Exception e) {
@@ -54,12 +56,12 @@ public class ForgotPasswordController {
 					e.printStackTrace();
 				}
 			}
-		} else {
+		}else{
 			Candidate student = candidateRepository.findByEmail(email);
 			if (student != null) {
 				if (email.equals(student.getEmail())) {
 					try {
-						AmazonSESSample.sendEmail(email);
+						AmazonSESSample.sendEmail(email, newPwd);
 						user = jpUserRepository.findByUsernameIgnoreCase(student.getUsername());
 						
 					} catch (Exception e) {
@@ -70,10 +72,17 @@ public class ForgotPasswordController {
 				}
 			}
 		}
-		user.setPassword("NewUser1");
+		
+		user.setPassword(newPwd);
 		jpUserRepository.save(user);
 
-		return ViewMapper.SUCCESS_RESET;
+		return ViewMapper.SUCCESS_SENT;
+	}
+	
+	public String generateRandomPassword(){
+		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		String pwd = RandomStringUtils.random( 15, characters );
+		return pwd;
 	}
 
 }

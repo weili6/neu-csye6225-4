@@ -6,16 +6,19 @@ import javax.mail.internet.*;
 
 public class AmazonSESSample {
 
-    static final String FROM = "nehaghate2013@gmail.com";   // Replace with your "From" address. This address must be verified.
-//    static final String TO = "nehaghate2805@gmail.com";  // Replace with a "To" address. If your account is still in the 
+	static final String FROM = "li.wei6@husky.neu.edu";
+//    static final String FROM = "nehaghate2013@gmail.com";   // Replace with your "From" address. This address must be verified.
+	//    static final String TO = "nehaghate2805@gmail.com";  // Replace with a "To" address. If your account is still in the 
                                                        // sandbox, this address must be verified.
     
-    static final String BODY = "Your new password is NewUser1. Please change it after your login.";
     static final String SUBJECT = "Amazon SES test (SMTP interface accessed using Java)";
     
     // Supply your SMTP credentials below. Note that your SMTP credentials are different from your AWS credentials.
-    static final String SMTP_USERNAME = "AKIAJFBDMMPJLQAVLCIQ";  // Replace with your SMTP username.
-    static final String SMTP_PASSWORD = "ArXyIvqG52o5zNJ7CCam08hIQb7JlqyemLGhv4ZZPfEK";  // Replace with your SMTP password.
+    static final String SMTP_USERNAME = "AKIAID3S7FJHI5QGZANQ";  // Replace with your SMTP username.
+    static final String SMTP_PASSWORD = "Ail5VkVuXmMPBCUzHx/WqrJgW+4y2UdOiXO1hi8GFMst";  // Replace with your SMTP password.
+    
+//    static final String SMTP_USERNAME = "AKIAJFBDMMPJLQAVLCIQ";  // Replace with your SMTP username.
+//    static final String SMTP_PASSWORD = "ArXyIvqG52o5zNJ7CCam08hIQb7JlqyemLGhv4ZZPfEK";  // Replace with your SMTP password.
     
     // Amazon SES SMTP host name. This example uses the US East  region.
     static final String HOST = "email-smtp.us-east-1.amazonaws.com";    
@@ -24,8 +27,9 @@ public class AmazonSESSample {
     // STARTTLS to encrypt the connection.
     static final int PORT = 587;
 
-    public static void sendEmail(String TO) throws Exception {
+    public static void sendEmail(String TO, String tempPwd) throws Exception {
 
+    	String body = "Your new password is "+ tempPwd+". Please change it after your login.";
         // Create a Properties object to contain connection configuration information.
     	Properties props = System.getProperties();
     	props.put("mail.transport.protocol", "smtps");
@@ -46,7 +50,7 @@ public class AmazonSESSample {
         msg.setFrom(new InternetAddress(FROM));
         msg.setRecipient(Message.RecipientType.TO, new InternetAddress(TO));
         msg.setSubject(SUBJECT);
-        msg.setContent(BODY,"text/plain");
+        msg.setContent(body,"text/plain");
         msg.addRecipient(Message.RecipientType.TO, new InternetAddress(TO));
 
         // Create a transport.        

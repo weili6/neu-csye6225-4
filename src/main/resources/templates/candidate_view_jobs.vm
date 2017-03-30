@@ -64,14 +64,14 @@
 					<ul class="nav navbar-nav">
 						<li><a href="/candidate_jobs.htm">View Jobs &nbsp;<span class="badge">
 						${jobs.size()}</span></a></li>
-						<li ><a href="edit_profile.htm">My Profile</a></li>
+						<li ><a href="candidate_view_profile.htm">My Profile</a></li>
 											</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="active"><a href="./">Questions? Call us at
 								1-866-204-6764 <span class="sr-only">(current)</span>
 						</a></li>
 
-						<li>Welcome, Neha</li>
+						<li>Welcome, $candidate.Name</li>
 
 						<li><a href="logout.htm" class="btn btn-info" role="button">Logout</a></li>
 
