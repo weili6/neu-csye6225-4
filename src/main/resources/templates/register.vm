@@ -7,9 +7,10 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/javascript"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-	
-	<script type="text/javascript">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script> 
+
+<script type="text/javascript">
      
 
 $("document").ready(function() {   
@@ -27,47 +28,21 @@ $(".candidate").hide();
 
 function ajaxFunction(){
                 
-                var username = document.getElementById("username").value;
+    var username = document.getElementById("username").value;
                 
-                var index = document.getElementById("role").selectedIndex;
-                var option = document.getElementById("role").options;
-                var role = option[index].text;
+    var index = document.getElementById("role").selectedIndex;
+    var option = document.getElementById("role").options;
+    var role = option[index].text;
                 
-                var xmlHttp;
-   
-                try     // Firefox, Opera 8.0+, Safari
-                {
-                    xmlHttp=new XMLHttpRequest();
-                }catch (e){
-                    try  // Internet Explorer
-                    {
-                        xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
-                    }catch (e){
-                        try{
-                            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-                        } catch (e){
-                            alert("Your browser does not support AJAX!");
-                            return false;
-                        }
-                    }
-                }
-
-                xmlHttp.onreadystatechange = function (){
-                    if (xmlHttp.readyState == 4){
-                    	var response = xmlHttp.responseText;
-                        document.getElementById("hint").innerHTML = response;
-                        if(response === "Invalid Username"){
-                        	document.getElementById("hint").style.color = "red";
-                        }else{
-                        	document.getElementById("hint").style.color = "green";
-                        }
-                        
-                    }
-                }
-
-                xmlHttp.open("GET", "/ajaxCheck?username="+username+"&role="+role, true);
-                xmlHttp.send();
-            }
+    $.ajax({url: "/ajaxCheck?username="+username+"&role="+role, success: function(result){
+        $("#hint").html(result);
+        if(result == "Invalid Username"){
+        	$("#hint").css("color", "red");
+        }else{
+            $("#hint").css("color", "green");
+        }
+    }});
+}
  
 </script>
  
