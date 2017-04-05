@@ -3,11 +3,11 @@ os: linux
 
 files:
   - source: ./appspec.yml
-    destination: /home/ubuntu
+    destination: /home/ec2-user
   - source: ./restartapp.sh
-    destination: /home/ubuntu
+    destination: /home/ec2-user
   - source: ./target/team4-0.0.1-SNAPSHOT.war
-    destination: /home/ubuntu
+    destination: /home/ec2-user
 
 #permissions:
 #  - object: /var/lib/tomcat7/webapps
@@ -28,4 +28,4 @@ hooks:
   AfterInstall:
    - location: ./restartapp.sh
      timeout: 180
-     runas: ubuntu
+#     runas: ubuntu
