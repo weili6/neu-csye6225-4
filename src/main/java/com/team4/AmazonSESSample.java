@@ -6,12 +6,12 @@ import javax.mail.internet.*;
 
 public class AmazonSESSample {
 
-	static final String FROM = "li.wei6@husky.neu.edu";
+	static final String FROM = "mail@neu-csye6225-spring2017-team-4.me";
 //    static final String FROM = "nehaghate2013@gmail.com";   // Replace with your "From" address. This address must be verified.
 	//    static final String TO = "nehaghate2805@gmail.com";  // Replace with a "To" address. If your account is still in the 
                                                        // sandbox, this address must be verified.
     
-    static final String SUBJECT = "Amazon SES test (SMTP interface accessed using Java)";
+    static final String SUBJECT = "Forgotten Password Reset";
     
     // Supply your SMTP credentials below. Note that your SMTP credentials are different from your AWS credentials.
     static final String SMTP_USERNAME = "AKIAID3S7FJHI5QGZANQ";  // Replace with your SMTP username.
