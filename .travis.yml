@@ -11,7 +11,7 @@ script:
 
 after_success:
   - mkdir -p codedeploy
-  - zip -r jobportal.zip target/team4-0.0.1-SNAPSHOT.war appspec.yml restartapp.sh
+  - zip -r jobportal.zip target/team4-0.0.1-SNAPSHOT.war appspec.yml restartapp.sh awslogs.conf
   - mv jobportal.zip codedeploy/
   - cd codedeploy
 
