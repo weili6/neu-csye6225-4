@@ -92,3 +92,4 @@ It's used by CodeDeploy to restart the application on the EC2 instance. It's not
 * Add email pattern control
 * Add empty entry alert
 * Added loggers using log4j which creates external file for logger.
+sss
