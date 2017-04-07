@@ -5,7 +5,7 @@ files:
   - source: ./appspec.yml
     destination: /home/ec2-user
   - source: ./awslogs.conf
-    destination: /etc/awslogs/awslogs.conf
+    destination: /etc/awslogs
   - source: ./restartapp.sh
     destination: /home/ec2-user
   - source: ./target/team4-0.0.1-SNAPSHOT.war
