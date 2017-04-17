@@ -3,6 +3,9 @@ package com.team4;
 import java.io.IOException;
 import java.util.Collection;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,6 +25,7 @@ import com.team4.util.URLMapper;
 public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 
 	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+	private static Logger logger = LogManager.getLogger();
 
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
@@ -38,6 +42,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 			System.out.println("Response has already been committed. Unable to redirect to " + targetUrl);
 			return;
 		}
+		logger.info("log in.");
 		redirectStrategy.sendRedirect(request, response, targetUrl);
 	}
 

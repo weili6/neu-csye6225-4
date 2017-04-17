@@ -2,6 +2,9 @@ package com.team4;
 
 import java.util.Arrays;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 //import org.springframework.security.core.authority.GrantedAuthorityImpl;
@@ -23,16 +26,21 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
+	private static Logger logger = LogManager.getLogger();
 
 	@Override
 	public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
 		JPUser user;
 		try {
 			user = userRepository.findByUsernameIgnoreCase(userId);
-			if (user == null)
+			if (user == null) {
+				logger.error(user.getUsername() + "not found");
 				throw new UsernameNotFoundException("user name not found");
+			}
+
 
 		} catch (Exception e) {
+			logger.error("Database error for user. " + e.getMessage());
 			throw new UsernameNotFoundException("database error ");
 		}
 		return buildUserFromUserEntity(user);

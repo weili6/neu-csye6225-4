@@ -7,6 +7,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -44,6 +47,7 @@ import com.team4.util.ViewMapper;
 public class RegistrationController {
 
 	public static final String REGISTRATION_MODEL = "registration";
+	private static Logger logger = LogManager.getLogger();
 
 	String univ;
 	
@@ -133,6 +137,7 @@ public class RegistrationController {
 			System.out.println(username);
 			
 			employerRepository.save(new Employer(name, email, linkedinURL,username));
+			logger.info(username + " registered.");
 		}
 
 		if(Role.candidate.name().equalsIgnoreCase(userRegistrationRequest.getRole())){
@@ -151,6 +156,7 @@ public class RegistrationController {
 							email,
 							linkedinURL,
 							userRegistrationRequest.getGpa(), username));
+			logger.info(username + " registered.");
 		}
 
 		jpUserRepository.save(
