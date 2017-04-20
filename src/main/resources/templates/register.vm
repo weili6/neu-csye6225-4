@@ -46,35 +46,7 @@ function ajaxFunction(){
     }});
 }
  
-function validate(){
 
-	var index = document.getElementById("role").selectedIndex;
-    var option = document.getElementById("role").options;
-    var role = option[index].text;
-    
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var gpa = document.getElementById("gpa").value;
-    var univname = document.getElementById("univname").value;
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    var linkedin = document.getElementById("linkedin").value;
-    var image = document.getElementById("image").value;
-    
-    if(role=="Employer"){
-    	if(name=='' || email=='' || username=='' || password=='' || linkedin=='' || image==''){
-    		alert("No empty!");
-    		return false;
-    	}
-    }else if(role=="Candidate"){
-    	if(name=='' || email=='' || username=='' || password=='' || linkedin=='' || gpa=='' || univname=='' || image==''){
-    		alert("No empty!");
-    		return false;
-    	}
-    }
-    
-    return true;
-}
 
 function checkPattern(){
 	var email = document.getElementById("email").value;
@@ -141,55 +113,55 @@ function checkPattern(){
 					<div class="input-group">
 						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 						<input  class="form-control" name="name" id="name"
-							placeholder="Your Name" size="100" >
+							placeholder="Your Name" size="100" required/>
 						
 					</div>
 
 					<div class="input-group">
 						<span class="glyphicon glyphicon-user" aria-hidden="true"></span><br>
 						<input class="form-control" name="email" id="email"
-							placeholder="Email Address" size="100" onkeyup="checkPattern()">
+							placeholder="Email Address" size="100" onkeyup="checkPattern()" required/>
 						<span id="result" />
 					</div>
 
 					<div class="input-group candidate">
 						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 						<input class="form-control" name="gpa" id="gpa"
-							placeholder="GPA" size="50">
+							placeholder="GPA" size="50" required/>
 					</div>
 
 					<div class="input-group candidate">
 						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 						<input class="form-control" name="univName" id="univname"
-							placeholder="University name" size="100" >
+							placeholder="University name" size="100" required/>
 					</div>
 					
 					<div class="input-group ">
                         			<span class="glyphicon glyphicon-user" aria-hidden="true"></span><br>
                         			<input class="form-control" name="username" id="username" 
-                        				placeholder="Username" size="100" onkeyup="ajaxFunction()">
+                        				placeholder="Username" size="100" onkeyup="ajaxFunction()" required/>
                         			<span id="hint" />
                     			</div>
 					
 					<div class="input-group">
 						<span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>
 						<input type="password" name="password" class="form-control" id="password"
-							placeholder="Password" size="100" />
+							placeholder="Password" size="100" required/>
 					</div>
 
 					 <div class="input-group">
 						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 						<input class="form-control" name="linkedInUrl" id="linkedin"
-							placeholder="LinkedIn URL" size="100" >
+							placeholder="LinkedIn URL" size="100" required/>
 					</div> 
 					
 					<div class="input-group">
 						<span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
-						<input type="file" accept="image/*" class="form-control" name="image" id="image">
+						<input type="file" accept="image/*" class="form-control" name="image" id="image" required/>
 					</div> 
 
 					<div class="row">
-						<input type="submit" class="btn btn-info" value="Register">
+						<input type="submit" class="btn btn-info" value="Register" id="submit">
 					</div>
 
 				</form>
