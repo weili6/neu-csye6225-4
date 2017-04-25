@@ -1,12 +1,8 @@
 # neu-csye6225-4
 [![Build Status](https://travis-ci.com/weili6/neu-csye6225-4.svg?token=y6k4kmm4ZbfcwpY79RLX&branch=master)](https://travis-ci.com/weili6/neu-csye6225-4)
 
-https://travis-ci.com/weili6/neu-csye6225-4
-
 https://neu-csye6225-spring2017-team-4.me
 
-team4.neu-csye6225-spring2017-team-4.me  
-ec2.neu-csye6225-spring2017-team-4.me  
 https://neu-csye6225-spring2017-team-4.signin.aws.amazon.com/console  
 ## Team
 - Neha Ghate ghate.n@husky.neu.edu
