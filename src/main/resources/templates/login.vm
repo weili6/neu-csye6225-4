@@ -57,7 +57,7 @@
 					<div class="form-group">
 						<label for="exampleInputEmail2">Password</label> 
 						<input type="password" class="form-control"  name="password" id="password"
-							placeholder="jane.doe@example.com" style="width: 300px">
+							placeholder="********" style="width: 300px">
 					</div>
 					
 					<button class="btn btn-md btn-success" type="submit" onclick="validate()">Sign
