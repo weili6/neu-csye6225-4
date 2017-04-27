@@ -77,6 +77,12 @@ Configuration files for continuous deployment.
 ### 13. restartapp.sh
 It's used by CodeDeploy to restart the application on the EC2 instance. It's not meant to be used by users.
 
+### How to run python sccript.
+This connects to the dynamodb and gets the json data from the table. We have to provide username in the GET request URL.
+Set environment variables:
+- export AWS_ACCESS_KEY_ID="you accesskey"                        
+- export AWS_SECRET_ACCESS_KEY="your secret key"
+- Run the get_python.py file on server and access the {localhost:8080}/?name={username}
 
 
 ## Updates
@@ -86,4 +92,5 @@ It's used by CodeDeploy to restart the application on the EC2 instance. It's not
 * Upload user image to S3 and display the image on candidate profile page
 * Add email pattern control
 * Add empty entry alert
-* Added loggers using log4j which creates external file for logger.
+* Added loggers using slf4j which creates external file for logger
+* Added python rest api , GET request gets data from AWS dynamo db
